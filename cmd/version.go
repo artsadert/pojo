@@ -6,16 +6,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func init() {
-	rootCmd.AddCommand(Version)
-}
-
 var Version = &cobra.Command{
 	// creates task
 	Use:   "version",
-	Short: "",
-	Long:  "",
+	Short: "Gets version of cli",
+	Long:  "Gets version of cli",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("pojo 0.1")
 	},
+}
+
+func init() {
+	rootCmd.AddCommand(Version)
 }

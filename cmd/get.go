@@ -14,7 +14,7 @@ var getTask = &cobra.Command{
 	// TODO change value of task to smth
 	Use:   "get",
 	Short: "Gets tasks",
-	Long:  "Gets tasks",
+	Long:  "Gets uncomplited tasks",
 	Run: func(cmd *cobra.Command, args []string) {
 		tasks, err := repo.GetTasks()
 		if err != nil {

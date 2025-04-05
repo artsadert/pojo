@@ -9,15 +9,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func init() {
-	rootCmd.AddCommand(CompleteTask)
-}
-
 var CompleteTask = &cobra.Command{
 	// marks task as compeled
 	Use:   "complete",
-	Short: "",
-	Long:  "",
+	Short: "Completes task",
+	Long:  "Edits json file to complete version",
 	Run: func(cmd *cobra.Command, args []string) {
 		id, err := strconv.ParseUint(args[0], 10, 64)
 		if err != nil {
@@ -32,4 +28,8 @@ var CompleteTask = &cobra.Command{
 		fmt.Println("Completed task with id:", id)
 	},
 	Args: cobra.MinimumNArgs(1),
+}
+
+func init() {
+	rootCmd.AddCommand(CompleteTask)
 }

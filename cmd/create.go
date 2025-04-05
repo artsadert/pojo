@@ -10,10 +10,6 @@ import (
 	"github.com/artsadert/pojo/repo"
 )
 
-func init() {
-	rootCmd.AddCommand(createTask)
-}
-
 var createTask = &cobra.Command{
 	// creates task
 	Use:   "create",
@@ -30,4 +26,8 @@ var createTask = &cobra.Command{
 		}
 	},
 	Args: cobra.MinimumNArgs(1),
+}
+
+func init() {
+	rootCmd.AddCommand(createTask)
 }

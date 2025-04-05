@@ -9,15 +9,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func init() {
-	rootCmd.AddCommand(putTask)
-}
-
 var putTask = &cobra.Command{
 	// TODO change value of task to smth
 	Use:   "put",
-	Short: "",
-	Long:  "",
+	Short: "Changes task data by id",
+	Long:  "Changes note in json file by id",
 	Run: func(cmd *cobra.Command, args []string) {
 		id, err := strconv.ParseUint(args[0], 10, 64)
 		if err != nil {
@@ -33,4 +29,8 @@ var putTask = &cobra.Command{
 		fmt.Println("Put task with id:", id)
 	},
 	Args: cobra.MinimumNArgs(2),
+}
+
+func init() {
+	rootCmd.AddCommand(putTask)
 }

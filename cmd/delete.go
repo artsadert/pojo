@@ -8,15 +8,11 @@ import (
 	"strconv"
 )
 
-func init() {
-	rootCmd.AddCommand(deleteTask)
-}
-
 var deleteTask = &cobra.Command{
 	// deletes task from task list
 	Use:   "delete",
-	Short: "",
-	Long:  "",
+	Short: "Deletes task",
+	Long:  "Deletes note in json file",
 	Run: func(cmd *cobra.Command, args []string) {
 		id, err := strconv.ParseUint(args[0], 10, 64)
 		if err != nil {
@@ -31,4 +27,8 @@ var deleteTask = &cobra.Command{
 		fmt.Println("Deleted task with id:", id)
 	},
 	Args: cobra.MinimumNArgs(1),
+}
+
+func init() {
+	rootCmd.AddCommand(deleteTask)
 }
